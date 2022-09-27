@@ -2,16 +2,14 @@
 #define DATAS_H_INCLUDED
 
 //--------------- Estrutura de Data --------------------------
-typedef struct
-{
+typedef struct{
     int dia;
     int mes;
     int ano;
 } Data;
 
 //----------------------- Estrutura de Hora -----------------------------------
-typedef struct
-{
+typedef struct{
     int hs;
     int mnto;
 } Hora;

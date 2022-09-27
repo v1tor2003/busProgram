@@ -14,16 +14,13 @@ determinada viagem.
 4. Qual o hor�rio de viagem mais rent�vel.
 5. Qual a m�dia de idade dos passageiros.
 */
-#include "viagens.h"
-#include "datas.h"
+#include "viagens.c"
+#include "datas.c"
 
 Viagem viagem[10000];
 
-int main()
-{
-
+int main(){
     Data di, df;  // data inicial e data final
-
     //-------------- Especifica os hor�rios das viagens de Onibus do rio para s�o paulo e vice-versa ------
     Hora rio_sp[5], sp_rio[5];
     rio_sp[0].hs = 12;
@@ -62,8 +59,7 @@ int main()
     cont = inicializa_viagens(viagem, di, df, rio_sp, sp_rio );  // Cria o vetor viagem com todas as viagens programadas
     int opcao;
 
-    while (opcao != 7)
-    {
+    while (opcao != 7){
         opcao = obter_opcao();
         if (opcao == 1){
             compra_passagem(viagem,di,df);
@@ -78,11 +74,7 @@ int main()
         }else if (opcao == 6){
             obter_media_idade(viagem);            
         }
-   }
+    }
     printf("\n\n--------  F   I   M     D  O    P  R  O  G  R  A  M  A  ------------------\n ");
-
-    printf("\n\nContador: %d", cont);
-    printf("\n---- F  I  M ----!\n");
     return 0;
-
 }

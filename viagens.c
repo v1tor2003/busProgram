@@ -1,10 +1,9 @@
 #include "viagens.h"
 #include <string.h>
 
-int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, Hora *sp_rio)
 // --- Cria o vetor viagem com as viagens no hor�rio do vetor de horas rio_sp e sp_rio das datas compreendidas entre dt_ini e dt_fim --
 // --- Os assentos do onibus s�o inicializadas com 0 --
-{
+int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, Hora *sp_rio){
     int i;
     int j=0;
     Data dt_ini2;
@@ -14,8 +13,7 @@ int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, H
     dt_ini2.mes = dt_ini.mes;
     dt_ini2.ano = dt_ini.ano;
 
-    for (i=0; !eh_igual(dt_ini,dt_fim); i++ )
-    {
+    for (i=0; !eh_igual(dt_ini,dt_fim); i++ ){
         viagem[i].data.dia = dt_ini.dia;
         viagem[i].data.mes = dt_ini.mes;
         viagem[i].data.ano = dt_ini.ano;
@@ -37,8 +35,7 @@ int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, H
 
     }
 
-    for (  ; !eh_igual(dt_ini2,dt_fim); i++ )
-    {
+    for (  ; !eh_igual(dt_ini2,dt_fim); i++ ){
         viagem[i].data.dia = dt_ini2.dia;
         viagem[i].data.mes = dt_ini2.mes;
         viagem[i].data.ano = dt_ini2.ano;
@@ -46,8 +43,7 @@ int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, H
         viagem[i].hora.mnto = sp_rio[j].mnto;
         viagem[i].direcao   = SP_RJ;
         j++;
-        if (j==5)
-        {
+        if (j==5){
                 dt_ini2 = incrementa(dt_ini2);
                 j=0;
         }
@@ -57,19 +53,14 @@ int inicializa_viagens(Viagem *viagem, Data dt_ini, Data dt_fim, Hora *rio_sp, H
         {
             viagem[i].assento[k] = 0;
         }
-
-
     }
-
-
 return contador;
 }
 
 //-----------------------------------------------
 // Menu de op��es para o usu�rio escolher
 //-----------------------------------------------
-int obter_opcao()
-{
+int obter_opcao(){
     int opcao;
     do{
         printf("\nMenu:");
@@ -89,8 +80,7 @@ int obter_opcao()
     return opcao;
 }
 
-void compra_passagem(Viagem *viagem,Data di,Data df)
-{
+void compra_passagem(Viagem *viagem,Data di,Data df){
     int achou_viagem = 0;
     int assento_desejado;
     Data dt_viagem;
